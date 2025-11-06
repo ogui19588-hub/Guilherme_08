@@ -327,18 +327,13 @@
 
       <button class="btn btn-login" onclick="entrar()">ENTRAR</button>
 
-      <!-- BOTÕES DE LOGIN GOOGLE / FACEBOOK -->
       <div class="social-buttons">
         <div id="g_id_onload"
           data-client_id="SUA_CLIENT_ID_DO_GOOGLE.apps.googleusercontent.com"
           data-callback="handleCredentialResponse"
           data-auto_prompt="false">
         </div>
-        <div class="g_id_signin"
-          data-type="standard"
-          data-size="medium">
-        </div>
-
+        <div class="g_id_signin" data-type="standard" data-size="medium"></div>
         <button class="facebook-btn" onclick="loginFacebook()">Facebook</button>
       </div>
 
@@ -380,8 +375,7 @@
   <!-- FACEBOOK API -->
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v20.0&appId=SUA_FACEBOOK_APP_ID&autoLogAppEvents=1"
-    nonce="abc123">
-  </script>
+    nonce="abc123"></script>
 
   <script>
     function mostrarCadastro() {
@@ -441,7 +435,8 @@
       if (usuario) {
         mostrarMensagem(msg, "Login realizado com sucesso! ✅");
         localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-        setTimeout(() => (window.location.href = "conta.html"), 1500);
+        // 🔽 Redireciona para a loja
+        setTimeout(() => (window.location.href = "loja.html"), 1500);
       } else {
         mostrarMensagem(msg, "E-mail ou senha incorretos!");
       }
@@ -449,7 +444,7 @@
 
     function mostrarMensagem(elemento, texto) {
       elemento.textContent = texto;
-      elemento.classList.add("show");
+      elemento.classList.add("show"); 
       setTimeout(() => elemento.classList.remove("show"), 3000);
     }
 
